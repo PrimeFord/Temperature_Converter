@@ -32,7 +32,7 @@ function App() {
               <option value="kelvin">Kelvin</option>
             </select>
             <select
-              className="border-solid border-b-2 border-[#3feee6] focus:outline-none px-2 py-1"
+              className="border-solid border-b-2 border-[#3feee6] focus:outline-none px-2 py-2"
               name="from"
               id="from"
             >
@@ -45,7 +45,7 @@ function App() {
             </select>
           </section>
           <div className="w-[50%] flex flex-col items-center lg:flex-row gap-4 justify-between mt-4 p-4">
-            <button className="w-[100%] lg:w-[30%] bg-[#fc4445] p-2">
+            <button className="w-[100%] lg:w-[30%] rounded-md bg-[#fc4445] p-2">
               Calculate
             </button>
             <p className="w-[65%] flex justify-center items-center text-[1.2rem] font-[400]">
