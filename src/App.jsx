@@ -60,7 +60,7 @@ function App() {
 
   return (
     <div className="App">
-      <div className="h-[95%] w-[90%] lg:h-[75%] lg:w-[50%] bg-white rounded-[.5rem]">
+      <div className="h-fit w-[90%] lg:h-[75%] lg:w-[50%] bg-white rounded-[.5rem]">
         <p className="text-center font-[400] text-[1.8rem] lg:text-[3rem] w-[100%] py-2 bg-[#97caef] text-white ">
           Temperature Converter
         </p>
