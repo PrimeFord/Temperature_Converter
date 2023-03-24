@@ -117,15 +117,7 @@ function App() {
               Calculate
             </button>
             <p className="w-[65%] flex justify-center items-center text-[1.5rem] font-[400]">
-              {() => {
-                if (to === "celcius") {
-                  parseInt(ans).toFixed(2) + "°C";
-                } else if (to === "fahrenheit") {
-                  parseInt(ans).toFixed(2) + "°F";
-                } else {
-                  parseInt(ans).toFixed(2) + "K";
-                }
-              }}
+              {parseInt(ans).toFixed(2)}
             </p>
           </div>
         </div>
