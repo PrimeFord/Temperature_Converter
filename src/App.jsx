@@ -150,11 +150,3 @@ export default App;
 //   return c;
 // };
 // me(2);
-
-if (to === "celcius") {
-  parseInt(ans).toFixed(2) + "°C";
-} else if (to === "fahrenheit") {
-  parseInt(ans).toFixed(2) + "°F";
-} else {
-  parseInt(ans).toFixed(2) + "K";
-}
