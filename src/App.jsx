@@ -7,6 +7,7 @@ function App() {
   const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
   const [ans, setAns] = useState("0");
+  const [unit, setUnit] = useState("");
 
   const convertC = () => {
     if (to === "fahrenheit") {
@@ -56,6 +57,23 @@ function App() {
     }
     console.log(ans);
     console.log(input);
+    if (to === "celcius") {
+      return setUnit("°C");
+    } else if (to === "fahrenheit") {
+      return setUnit("°F");
+    } else {
+      return setUnit("K");
+    }
+  };
+
+  const check = () => {
+    if (to === "celcius") {
+      return setUnit("°C");
+    } else if (to === "fahrenheit") {
+      return setUnit("°F");
+    } else {
+      return setUnit("K");
+    }
   };
 
   return (
@@ -79,7 +97,7 @@ function App() {
           </div>
           <section className="w-[100%] lg:w-fit flex lg:flex-row flex-col gap-10 m-2 my-8 p-2">
             <select
-              className="first:text-[#e1e1e1] border-solid border-b-2 border-[#3feee6] focus:outline-none first-of-type:text-[#c1c1c1] px-2 py-1"
+              className="first:text-[#c1c1c1] border-solid border-b-2 border-[#fc4445] focus:outline-none first-of-type:text-[#999999] px-2 py-1"
               name="from"
               id="from"
               value={from}
@@ -118,6 +136,7 @@ function App() {
             </button>
             <p className="w-[65%] flex justify-center items-center text-[1.5rem] font-[400]">
               {parseInt(ans).toFixed(2)}
+              <span>{unit}</span>
             </p>
           </div>
         </div>
@@ -142,3 +161,14 @@ export default App;
 //   return c;
 // };
 // me(2);
+
+// () => {
+//   if (to === "celcius") {
+//     parseInt(ans).toFixed(2) + "°C";
+//   } else if (to === "fahrenheit") {
+//     parseInt(ans).toFixed(2) + "°F";
+//   } else {
+//     parseInt(ans).toFixed(2) + "K";
+//   }
+// }
+//°F
