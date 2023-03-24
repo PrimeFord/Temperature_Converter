@@ -117,7 +117,7 @@ function App() {
               Calculate
             </button>
             <p className="w-[65%] flex justify-center items-center text-[1.5rem] font-[400]">
-              {parseInt(ans).toFixed(2) + F}
+              {parseInt(ans).toFixed(2) + "F"}
             </p>
           </div>
         </div>
