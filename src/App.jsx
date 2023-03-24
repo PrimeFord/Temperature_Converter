@@ -6,41 +6,56 @@ function App() {
   const [input, setInput] = useState("");
   const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
-  const [ans, setAns] = useState("");
+  const [ans, setAns] = useState("0");
 
-  const convert = (e) => {
-    e.preventDefault();
-
-    if (from === "celcius") {
-      if (to === "fahrenheit") {
-        s = input * 1.8 + 32;
-      } else if (to === "kelvin") {
-        s = input + 273;
-      } else {
-        s = input * 1;
-      }
-      return s;
-    } else if (from === "fahrenheit") {
-      if (to === "celcius") {
-        s = (input - 32) / 1.8;
-      } else if (to === "kelvin") {
-        s = (input - 32) / 1.8 + 273;
-      } else {
-        s = input * 1;
-      }
-      return s;
+  const convertC = () => {
+    if (to === "fahrenheit") {
+      let s = input * 1.8 + 32;
+      return setAns(s);
+    } else if (to === "kelvin") {
+      let s = parseInt(input) + 273;
+      return setAns(s);
     } else {
-      if (to === "celcius") {
-        s = input - 273;
-      } else if (to === "fahrenheit") {
-        s = (input - 273) * 1.8 + 32;
-      } else {
-        s = input * 1;
-      }
-      return s;
+      let s = input * 1;
+      return setAns(s);
     }
-    return s;
-    console.log(s);
+  };
+  const convertF = () => {
+    if (to === "celcius") {
+      let s = (parseInt(input) - 32) / 1.8;
+      return setAns(s);
+    } else if (to === "kelvin") {
+      let s = (parseInt(input) - 32) / 1.8 + 273;
+      return setAns(s);
+    } else {
+      let s = input * 1;
+      return setAns(s);
+    }
+  };
+
+  const convertK = () => {
+    if (to === "celcius") {
+      let s = parseInt(input) - 273;
+      return setAns(s);
+    } else if (to === "fahrenheit") {
+      let s = (parseInt(input) - 273) * 1.8 + 32;
+      return setAns(s);
+    } else {
+      let s = input * 1;
+      return setAns(s);
+    }
+  };
+  const choice = (e) => {
+    e.preventDefault();
+    if (from === "celcius") {
+      convertC();
+    } else if (from === "fahrenheit") {
+      convertF();
+    } else {
+      convertK();
+    }
+    console.log(ans);
+    console.log(input);
   };
 
   return (
@@ -97,12 +112,20 @@ function App() {
           <div className="w-[50%] flex flex-col items-center lg:flex-row gap-4 justify-between mt-4 p-4">
             <button
               className="w-[100%] lg:w-[30%] rounded-md bg-[#fc4445] p-2"
-              onClick={convert}
+              onClick={choice}
             >
               Calculate
             </button>
-            <p className="w-[65%] flex justify-center items-center text-[1.2rem] font-[400]">
-              0
+            <p className="w-[65%] flex justify-center items-center text-[1.5rem] font-[400]">
+              {() => {
+                if (to === "celcius") {
+                  parseInt(ans).toFixed(2) + "°C";
+                } else if (to === "fahrenheit") {
+                  parseInt(ans).toFixed(2) + "°F";
+                } else {
+                  parseInt(ans).toFixed(2) + "K";
+                }
+              }}
             </p>
           </div>
         </div>
@@ -127,3 +150,11 @@ export default App;
 //   return c;
 // };
 // me(2);
+
+if (to === "celcius") {
+  parseInt(ans).toFixed(2) + "°C";
+} else if (to === "fahrenheit") {
+  parseInt(ans).toFixed(2) + "°F";
+} else {
+  parseInt(ans).toFixed(2) + "K";
+}
